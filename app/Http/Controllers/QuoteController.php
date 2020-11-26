@@ -34,12 +34,10 @@ class QuoteController extends Controller
     {
         return response()->json(
             Quote::query()
-                ->orderByRaw('RAND()')
+                ->inRandomOrder()
                 ->with('character')
-                ->when($request->get('author'), function (Builder $builder) use ($request) {
-                    $builder->whereHas('character', function (Builder $builder) use ($request) {
-                        $builder->where('name', 'LIKE', "%{$request->get('author')}%");
-                    });
+                ->whereHas('character', function (Builder $builder) use ($request) {
+                    $builder->where('name', 'LIKE', "%{$request->get('author')}%");
                 })
                 ->firstOrFail()
         );

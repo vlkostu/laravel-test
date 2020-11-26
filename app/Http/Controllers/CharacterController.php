@@ -20,9 +20,7 @@ class CharacterController extends Controller
         return response()->json(
             Character::query()
                 ->with(['episodes', 'quotes'])
-                ->when($request->get('name'), function (Builder $builder) use ($request) {
-                    $builder->where('name', 'LIKE', "%{$request->get('name')}%");
-                })
+                ->where('name', 'LIKE', "%{$request->get('name')}%")
                 ->paginate($request->get('limit'))
         );
     }
@@ -37,7 +35,7 @@ class CharacterController extends Controller
     {
         return response()->json(
             Character::query()
-                ->orderByRaw('RAND()')
+                ->inRandomOrder()
                 ->firstOrFail()
         );
     }
