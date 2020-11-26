@@ -16,23 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        /*$episodes = Episode::factory(30)->create();
-        $characters = Character::factory(100)->create();
-        $quotes = Quote::factory(500)->create();
-
-        $episodes->each(function ($episode) use ($characters, $quotes) {
-            # Rand characters
-            $characters = $characters->random(rand(5, 15));
-            # Sync characters
-            $episode->characters()->attach($characters);
-            # Sync quotes
-            $characters->each(function ($character) use ($episode, $quotes) {
-                $quotes = $quotes->random(rand(3, 7));
-                $character->quotes()->saveMany($quotes);
-                $episode->quotes()->saveMany($quotes);
-            });
-        });*/
-
         $episodes = Episode::factory(30)->create();
         $characters = Character::factory(100)->create();
 
