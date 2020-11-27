@@ -33,7 +33,7 @@ class EpisodeController extends Controller
     public function getByID(Episode $episode)
     {
         return response()->json(
-            $episode->with('characters')->firstOrFail()
+            $episode->load('characters')
         );
     }
 }

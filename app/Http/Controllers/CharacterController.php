@@ -21,7 +21,9 @@ class CharacterController extends Controller
         return response()->json(
             Character::query()
                 ->with(['episodes', 'quotes'])
-                ->where('name', 'LIKE', "%{$request->get('name')}%")
+                ->when($request->get('name'), function (Builder $builder) use ($request) {
+                    $builder->where('name', 'LIKE', "%{$request->get('name')}%");
+                })
                 ->paginate($request->get('limit'))
         );
     }

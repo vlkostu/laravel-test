@@ -16,7 +16,12 @@ class Character extends Model
      */
 
     protected $fillable = [
-        'name', 'birthday', 'occupations', 'img', 'nickname', 'portrayed'
+        'name',
+        'birthday',
+        'occupations',
+        'img',
+        'nickname',
+        'portrayed'
     ];
 
     /**
@@ -29,7 +34,9 @@ class Character extends Model
      * @var string[]
      */
 
-    protected $dates = ['birthday'];
+    protected $dates = [
+        'birthday'
+    ];
 
     /**
      * @var string[]

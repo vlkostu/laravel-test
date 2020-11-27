@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Episode;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -24,7 +25,7 @@ class EpisodeFactory extends Factory
     {
         return [
             'title' => Str::beforeLast($this->faker->sentence(3), '.'),
-            'air_date' => $this->faker->date()
+            'air_date' => $this->faker->dateTimeThisYear
         ];
     }
 }

@@ -32,4 +32,13 @@ class Quote extends Model
     {
         return $this->belongsTo(Character::class);
     }
+
+    /**
+     * @return BelongsTo
+     */
+
+    public function episode() : BelongsTo
+    {
+        return $this->belongsTo(Episode::class);
+    }
 }

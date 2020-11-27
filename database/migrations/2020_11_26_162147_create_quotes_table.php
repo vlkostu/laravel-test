@@ -16,8 +16,8 @@ class CreateQuotesTable extends Migration
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->mediumText('quote');
-            $table->unsignedBigInteger('episode_id')->nullable();
-            $table->unsignedBigInteger('character_id')->nullable();
+            $table->unsignedBigInteger('episode_id');
+            $table->unsignedBigInteger('character_id');
             $table->foreign('episode_id')->references('id')->on('episodes')->onDelete('cascade');
             $table->foreign('character_id')->references('id')->on('characters')->onDelete('cascade');
             $table->timestamps();

@@ -29,10 +29,11 @@ class DatabaseSeeder extends Seeder
             # Sync quotes
             $charactersRandom->each(function ($character) use ($episode) {
                 # Generate quotes
-                $quotes = Quote::factory(rand(3, 7))->create();
-                # Sync quotes
-                $character->quotes()->saveMany($quotes);
-                $episode->quotes()->saveMany($quotes);
+                Quote::factory(rand(3, 7))->make()->each(function ($quote) use ($character, $episode) {
+                    $quote->character()->associate($character);
+                    $quote->episode()->associate($episode);
+                    $quote->save();
+                });
             });
         });
     }

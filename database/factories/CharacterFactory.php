@@ -23,9 +23,9 @@ class CharacterFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'birthday' => $this->faker->date(),
-            'occupations' => json_encode([$this->faker->jobTitle]),
-            'img' => $this->faker->imageUrl(),
+            'birthday' => $this->faker->dateTimeThisCentury->format('Y-m-d'),
+            'occupations' => [$this->faker->jobTitle],
+            'img' => $this->faker->imageUrl(250, 250, 'people'),
             'nickname' => strtolower($this->faker->firstName),
             'portrayed' => $this->faker->firstName." ".$this->faker->lastName
         ];
