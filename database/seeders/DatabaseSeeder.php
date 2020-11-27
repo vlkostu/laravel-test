@@ -23,21 +23,18 @@ class DatabaseSeeder extends Seeder
         # Count episodes
         $episodesCount = $episodes->count();
 
-        $episodes->each(function ($episode) use ($characters, $episodesCount) {
+        $episodes->each(function ($episode) use ($characters) {
             # Rand characters
-            $characters = $characters->random(rand(5, 15));
+            $charactersRandom = $characters->random(rand(5, 15));
             # Sync characters
-            $episode->characters()->attach($characters);
+            $episode->characters()->attach($charactersRandom);
             # Sync quotes
-            $characters->each(function ($character) use ($episode, $episodesCount) {
+            $charactersRandom->each(function ($character) use ($episode) {
                 # Generate quotes
-                $quotes = Quote::factory(rand(3, 7))->create([
-                    'episode_id' => rand(1, $episodesCount),
+                Quote::factory(rand(3, 7))->create([
+                    'episode_id' => $episode->id,
                     'character_id' => $character->id
                 ]);
-                # Sync character and episode
-                $character->quotes()->saveMany($quotes);
-                $episode->quotes()->saveMany($quotes);
             });
         });
     }
