@@ -19,7 +19,7 @@ class CreateCharactersTable extends Migration
             $table->date('birthday');
             $table->json('occupations');
             $table->string('img');
-            $table->string('nickname');
+            $table->string('nickname')->unique();
             $table->string('portrayed');
             $table->timestamps();
         });
