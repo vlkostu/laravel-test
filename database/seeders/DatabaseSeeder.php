@@ -40,23 +40,5 @@ class DatabaseSeeder extends Seeder
                 $episode->quotes()->saveMany($quotes);
             });
         });
-
-        /*$episodes = Episode::factory(30)->create();
-        $characters = Character::factory(100)->create();
-
-        $episodes->each(function ($episode) use ($characters) {
-            $episode->characters()->attach(
-                $characters->random(rand(5, 15))
-            );
-        });
-
-        $episodesCount = $episodes->count();
-
-        $characters->each(function ($character) use ($episodes, $episodesCount) {
-            Quote::factory(rand(3, 7))->create([
-                'episode_id' => rand(1, $episodesCount),
-                'character_id' => $character->id
-            ]);
-        });*/
     }
 }
