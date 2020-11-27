@@ -20,8 +20,6 @@ class DatabaseSeeder extends Seeder
         $episodes = Episode::factory(30)->create();
         # Create characters
         $characters = Character::factory(100)->create();
-        # Count episodes
-        $episodesCount = $episodes->count();
 
         $episodes->each(function ($episode) use ($characters) {
             # Rand characters
@@ -32,13 +30,9 @@ class DatabaseSeeder extends Seeder
             $charactersRandom->each(function ($character) use ($episode) {
                 # Generate quotes
                 $quotes = Quote::factory(rand(3, 7))->create();
+                # Sync quotes
                 $character->quotes()->saveMany($quotes);
                 $episode->quotes()->saveMany($quotes);
-
-                /*Quote::factory(rand(3, 7))->create([
-                    'episode_id' => $episode->id,
-                    'character_id' => $character->id
-                ]);*/
             });
         });
     }
