@@ -15,7 +15,7 @@ class StatisticController extends Controller
     public function getAll()
     {
         return response()->json(
-            Cache::get('api-total-requests')
+            Cache::get('api-total-requests', 0)
         );
     }
 
@@ -28,7 +28,7 @@ class StatisticController extends Controller
     public function getUser()
     {
         return response()->json(
-            Cache::get('api:users:'.auth()->id())
+            Cache::get('api:users:'.auth()->id(), 0)
         );
     }
 }
