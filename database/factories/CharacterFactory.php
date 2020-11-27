@@ -26,8 +26,8 @@ class CharacterFactory extends Factory
             'birthday' => $this->faker->date(),
             'occupations' => json_encode([$this->faker->jobTitle]),
             'img' => $this->faker->imageUrl(),
-            'nickname' => strtolower($this->faker->firstName).mt_rand(1000, 10000),
-            'portrayed' => $this->faker->unique()->name
+            'nickname' => strtolower($this->faker->firstName),
+            'portrayed' => $this->faker->firstName." ".$this->faker->lastName
         ];
     }
 }
