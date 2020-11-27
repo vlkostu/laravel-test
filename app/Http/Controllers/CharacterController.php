@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Character;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -12,7 +13,7 @@ class CharacterController extends Controller
      * Get all characters
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getAll(Request $request)
@@ -28,7 +29,7 @@ class CharacterController extends Controller
     /**
      * Get random character
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getRandom()

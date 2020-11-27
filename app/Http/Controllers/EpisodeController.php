@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Episode;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
@@ -12,7 +13,7 @@ class EpisodeController extends Controller
      * Get all episodes
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getAll(Request $request)
@@ -26,7 +27,7 @@ class EpisodeController extends Controller
      * Get episode by id
      *
      * @param Episode $episode
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getByID(Episode $episode)

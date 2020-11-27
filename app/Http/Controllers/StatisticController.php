@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 
 class StatisticController extends Controller
@@ -9,7 +10,7 @@ class StatisticController extends Controller
     /**
      * Get all stats
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getAll()
@@ -22,7 +23,7 @@ class StatisticController extends Controller
     /**
      * Get stats auth user
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getUser()

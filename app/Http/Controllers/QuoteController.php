@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quote;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class QuoteController extends Controller
@@ -13,7 +14,7 @@ class QuoteController extends Controller
      * Get all quotes
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getAll(Request $request)
@@ -27,7 +28,7 @@ class QuoteController extends Controller
      * Get random quote
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function getRandom(Request $request)
