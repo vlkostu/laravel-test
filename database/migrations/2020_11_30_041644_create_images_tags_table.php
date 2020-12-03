@@ -18,6 +18,8 @@ class CreateImagesTagsTable extends Migration
             $table->unsignedBigInteger('image_id');
             $table->string('name');
             $table->timestamps();
+
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
         });
     }
 

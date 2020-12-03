@@ -20,6 +20,8 @@ class CreateImagesResizesTable extends Migration
             $table->string('path');
             $table->integer('width');
             $table->timestamps();
+
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
         });
     }
 

@@ -43,7 +43,7 @@ class DeleteImages extends Command
     {
         # Get images
         $images = Image::query()->where('delete_at', '<', now())
-            ->orWhere('created_at', '>', now()->addMinutes(10))
+            ->orWhere('created_at', '>', now()->subMinutes(10))
             ->with('imagesResizes')
             ->get(['id', 'url', 'path']);
 
