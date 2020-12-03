@@ -27,7 +27,7 @@ class ImageSendMail
             'user' => $user,
             'images' => $images
         ], function ($message) use ($user) {
-            $message->to('vlad95715@gmail.com')->subject('Фото.');
+            $message->to($user->email)->subject('Фото.');
         });
 
         return true;
