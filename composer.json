@@ -23,9 +23,9 @@
         "laravel/horizon": "^5.5",
         "laravel/passport": "^10.0",
         "laravel/tinker": "^2.0",
+        "lcobucci/jwt": "3.3.3",
         "predis/predis": "^1.1",
-        "tymon/jwt-auth": "dev-develop",
-        "lcobucci/jwt": "3.3.3"
+        "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

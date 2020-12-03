@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\StatisticController;
 use Dingo\Api\Routing\Router;
@@ -52,5 +53,7 @@ $api->version('v1', function (Router $api) {
             $api->get('/', [StatisticController::class, 'getAll']);
             $api->get('/my', [StatisticController::class, 'getUser']);
         });
+        $api->get('/images', [ImageController::class, 'getAll']);
+        $api->post('/images', [ImageController::class, 'upload']);
     });
 });
