@@ -58,8 +58,7 @@ class Image extends Model
 
     public function getImages(Request $request)
     {
-        return self::where('user_id', auth()->id())
-        ->with(['imageResizes', 'imageTags'])
+        return self::with(['imageResizes', 'imageTags'])
         ->when($request->get('tags'), function ($query) use ($request) {
             $this->explodeTags($request)->each(function ($tag) use ($query, $request) {
                 $query->whereHas('imageTags', function (Builder $builder) use ($request, $tag) {
